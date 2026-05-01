@@ -1,0 +1,43 @@
+
+//password
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="passForm">
+  <input type="password" id="password" placeholder="Enter password">
+  <button type="submit">Check</button>
+  <button type="reset">Reset</button>
+
+</form>
+
+<div id="result"></div>
+    
+</body>
+<script>
+    const form = document.getElementById("passForm");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let password = document.getElementById("password").value;
+
+  if (password === "") {
+    result.innerHTML = "Password empty hai";
+  } 
+  else if (password.length < 6) {
+    result.innerHTML = "Password kam se kam 6 character ka hona chahiye";
+  }else if (!isNaN(password)) {
+  result.innerHTML = "Password me letter bhi hona chahiye";
+}
+  else {
+    result.innerHTML = "Password valid hai ✅";
+  }
+});
+</script>
+</html>
